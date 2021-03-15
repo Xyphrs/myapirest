@@ -8,6 +8,25 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
   .get('/mensajes', (req, res) => {
-    res.send('Lo que quieras')
+    res.send(JSON.stringify(
+      {
+        "nombre": "dani",
+        "edad": 20,
+        "telefono": {
+          "prefijo": "+34",
+          "numero": "53535534"
+        },
+        "amigos": [
+          {
+            "nombre": "Paco",
+            "id": 15,
+          },
+          {
+            "nombre": "Paca",
+            "id": 16,
+          }
+        ]
+      }
+    ))
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
